@@ -1,7 +1,12 @@
 import requests
 from urllib.parse import urlparse, parse_qs, urlencode
 
-securitySQL = ["SQL syntax", "mysql_fetch_array()", "PostgreSQL Error"]
+securitySQL = [
+    "SQL syntax", "mysql_fetch_array()", "PostgreSQL Error", 
+    "ORA-01756", "Microsoft OLE DB Provider for SQL Server",
+    "Query failed", "supplied argument is not a valid MySQL result",
+    "sqlite3.OperationalError", "Unexpected end of data"
+]
 
 def scanInjectionsSQL(url):
   parsedUrl = urlparse(url)

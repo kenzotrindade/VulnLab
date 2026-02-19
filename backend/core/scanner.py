@@ -4,6 +4,7 @@ from .modules.files import scanFiles
 from .modules.fingerprinting import scanFingerprint
 from .modules.cookies import scanCookies
 from .modules.injectSQL import scanInjectionsSQL
+from .modules.injectXSS import scanInjectionsXSS
 
 def launchScanner(url: str):
   try:
@@ -15,7 +16,9 @@ def launchScanner(url: str):
         "FingerPrinting": scanFingerprint(response.headers),
         "Cookies": scanCookies(response.raw.headers.getlist("Set-Cookie")),
         "InjectionsSQL": scanInjectionsSQL(url),
+        "InjectionXSS": scanInjectionsXSS(url),
         }
       return results
-  except:
-    return {"success": False, "errorMessage": "Error"}
+  except Exception as e:
+      print(f"ERROR : {type(e).__name__} - {e}") 
+      return {"success": False, "errorMessage": str(e)}

@@ -1,6 +1,14 @@
 import requests
 
-securityHeaders = ["Content-Security-Policy", "X-Frame-Options", "Strict-Transport-Security", "X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy"]
+securityHeaders = {
+    "Content-Security-Policy": "default-src 'self'",
+    "Strict-Transport-Security": "max-age=",
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "no-referrer",
+    "Permissions-Policy": "geolocation=()",
+    "X-XSS-Protection": "1; mode=block"
+}
 
 def scanHeaders(header):
   report = {}
