@@ -3,6 +3,7 @@ from .modules.headers import scanHeaders
 from .modules.files import scanFiles
 from .modules.fingerprinting import scanFingerprint
 from .modules.cookies import scanCookies
+from .modules.injectSQL import scanInjectionsSQL
 
 def launchScanner(url: str):
   try:
@@ -13,6 +14,7 @@ def launchScanner(url: str):
         "Files": scanFiles(url),
         "FingerPrinting": scanFingerprint(response.headers),
         "Cookies": scanCookies(response.raw.headers.getlist("Set-Cookie")),
+        "InjectionsSQL": scanInjectionsSQL(url),
         }
       return results
   except:
