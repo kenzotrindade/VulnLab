@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.core.scanner import launchScanner
+from scanner import launchScanner
 
 app = FastAPI()
 

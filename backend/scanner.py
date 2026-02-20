@@ -1,10 +1,10 @@
 import requests
-from .modules.headers import scanHeaders
-from .modules.files import scanFiles
-from .modules.fingerprinting import scanFingerprint
-from .modules.cookies import scanCookies
-from .modules.injectSQL import scanInjectionsSQL
-from .modules.injectXSS import scanInjectionsXSS
+from modules.headers import scanHeaders
+from modules.files import scanFiles
+from modules.fingerprinting import scanFingerprint
+from modules.cookies import scanCookies
+from modules.injectSQL import scanInjectionsSQL
+from modules.injectXSS import scanInjectionsXSS
 
 def launchScanner(url: str):
   try:
